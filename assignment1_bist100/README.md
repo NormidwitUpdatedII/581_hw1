@@ -1,106 +1,111 @@
-# BIST100 Assignment 1 - README
+# Assignment 1 — BIST100 Strategy Comparison
 
-## Assignment Objective
-Trade idea:
+**Script:** `assignment1_bist100.py` | **Report:** `short_report.md`
 
-Test two simple trading strategies on BIST100 using Python.
+---
 
-Data requirement:
+## Assignment Overview
 
-- Use daily data for BIST100 index (ticker: `^XU100`) from yfinance.
-- Calculate daily returns.
+Test two simple rule-based trading strategies on the BIST100 index and determine which approach — trend following or mean reversion — delivers better risk-adjusted performance.
 
-Strategies:
+| Parameter | Value |
+|---|---|
+| Data source | yfinance (`XU100.IS`, daily bars) |
+| Sample period | 2010-01-04 to 2026-03-27 (4,069 trading days) |
+| Backtest engine | Backtrader |
+| Optimization grid | n = 1…10, m = 1…10 (100 combinations per strategy) |
+| Selection criterion | Sharpe ratio |
+| Positioning | Long-only, 95% allocation per signal |
+| Commission | 0.1% per trade |
 
-1. Trend Following Strategy
-   - Buy after `n` consecutive days of positive returns.
-   - Sell after `m` consecutive days of negative returns.
+---
 
-2. Mean Reversion Strategy
-   - Buy after `n` consecutive days of negative returns.
-   - Sell after `m` consecutive days of positive returns.
+## Strategies
 
-## How This Repository Matches the Assignment
+**Trend Following** (`TrendFollowingStrategy`): Buy after `n` consecutive days of positive returns; sell after `m` consecutive days of negative returns. Bets on momentum persistence.
 
-1. Python code uses Backtrader and defines two separate strategy classes in `assignment1_bist100.py`:
-   - `TrendFollowingStrategy`
-   - `MeanReversionStrategy`
+**Mean Reversion** (`MeanReversionStrategy`): Buy after `n` consecutive days of negative returns; sell after `m` consecutive days of positive returns. Bets on short-term reversal.
 
-2. Data is downloaded from yfinance and daily returns are computed.
+---
 
-3. Optimization runs a grid search for both strategies with:
-   - `n = 1..10`
-   - `m = 1..10`
-   - Total parameter combinations per strategy: 100
+## Answer to the Assignment Question
 
-4. Evaluation computes these metrics for each run:
-   - Total return
-   - Annualized return
-   - Volatility
-   - Sharpe ratio
-   - Maximum drawdown
+> *Is it better to be a trend follower or a contrarian in BIST100?*
 
-5. Comparison step selects best `(n, m)` for each strategy and compares optimized results.
+**Trend Following.** The optimized Trend Following strategy (n=4, m=6) achieves a Sharpe ratio of **1.058** versus **0.937** for the best Mean Reversion setup (n=1, m=10). It also produces lower volatility (21.0% vs. 23.3%) and a smaller maximum drawdown (28.6% vs. 32.8%). See `short_report.md` for the full analysis.
 
-## Direct Answer to the Assignment Question
-Question: Is it better to be a trend follower or a contrarian in BIST100?
+| Strategy | n | m | Sharpe | Ann. Return | Max Drawdown |
+|---|:-:|:-:|--:|--:|--:|
+| Trend Following | 4 | 6 | **1.058** | 22.17% | 28.63% |
+| Mean Reversion | 1 | 10 | 0.937 | 21.04% | 32.80% |
+| Buy & Hold | — | — | 0.922 | 21.69% | 34.33% |
 
-Result for this tested sample:
+---
 
-The optimized Trend Following strategy has a higher Sharpe ratio than the optimized Mean Reversion strategy.
+## Quickstart
 
-Conclusion: In this backtest sample, being a trend follower performs better than being a contrarian.
+```bash
+# Install dependencies
+pip install -r requirements.txt
 
-## Files Requested by the Assignment
-
-Please submit at minimum:
-
-- `assignment1_bist100.py` (Python code: data, strategies, optimization, evaluation)
-- `short_report.md` (short report with results, tables/plots, and conclusion)
-
-Generated result tables/plots are saved under `results/` and are referenced by the short report.
-
-## Reproducibility
-
-Install dependencies:
-
-```powershell
-python -m pip install -r requirements.txt
-```
-
-Run the full pipeline:
-
-```powershell
+# Run full pipeline (data download → backtest → optimization → output)
 python assignment1_bist100.py
 ```
 
-This run produces:
+> **Note on ticker:** The assignment specifies `^XU100`. The script attempts this first and automatically falls back to `XU100.IS` when long-history data is sparse. The ticker actually used is logged to `results/data_diagnostics.csv`.
 
-- Optimization outputs (`trend_results.csv`, `mean_results.csv`, `best_summary.csv`)
-- Visualization files (`trend_sharpe_heatmap.png`, `mean_sharpe_heatmap.png`, `equity_curves.png`)
-- Data diagnostics files
-- Updated `short_report.md`
+---
 
-## Current Project Structure
+## Repository Structure
 
-```text
-assignment1_bist100/
-|- assignment1_bist100.py
-|- inspect_data.py
-|- inspect_tickers.py
-|- requirements.txt
-|- short_report.md
-|- run_output.txt
-|- README.md
-\- results/
-   |- best_summary.csv
-   |- trend_results.csv
-   |- mean_results.csv
-   |- trend_sharpe_heatmap.png
-   |- mean_sharpe_heatmap.png
-   |- equity_curves.png
-   |- data_diagnostics.csv
-   |- data_head.csv
-   |- data_tail.csv
-   \- RESULTS_INDEX.md
 ```
+assignment1_bist100/
+├── assignment1_bist100.py     # Main script: strategies, grid search, metrics, plots
+├── short_report.md            # Report with tables, heatmaps, equity curves, conclusion
+├── README.md                  # This file
+├── requirements.txt           # Python dependencies
+├── run_output.txt             # Console output from the latest run
+├── inspect_data.py            # Helper: inspect downloaded price data
+├── inspect_tickers.py         # Helper: check ticker availability in yfinance
+└── results/
+    ├── best_summary.csv       # Best (n, m) and metrics for each strategy + buy-and-hold
+    ├── trend_results.csv      # Full 10×10 grid results — Trend Following (100 rows)
+    ├── mean_results.csv       # Full 10×10 grid results — Mean Reversion (100 rows)
+    ├── trend_sharpe_heatmap.png
+    ├── mean_sharpe_heatmap.png
+    ├── equity_curves.png
+    ├── data_diagnostics.csv   # Ticker used, row count, date range, price range
+    ├── data_head.csv          # First rows of downloaded data
+    ├── data_tail.csv          # Last rows of downloaded data
+    └── RESULTS_INDEX.md       # Index of all output files
+```
+
+---
+
+## Output Files
+
+| File | Description |
+|---|---|
+| `results/best_summary.csv` | One row per strategy (+ buy-and-hold) with best params and all metrics |
+| `results/trend_results.csv` | 100-row grid — every (n, m) for Trend Following |
+| `results/mean_results.csv` | 100-row grid — every (n, m) for Mean Reversion |
+| `results/trend_sharpe_heatmap.png` | Sharpe heatmap for Trend Following (all 100 cells valid) |
+| `results/mean_sharpe_heatmap.png` | Sharpe heatmap for Mean Reversion (gray = NaN, see note below) |
+| `results/equity_curves.png` | Portfolio value over time for all three approaches |
+
+> **Note on gray cells in the Mean Reversion heatmap:** The top two rows (n = 9, n = 10) are gray because those parameter combinations effectively never trigger an entry in this sample — requiring 9–10 consecutive down-days is too strict. Zero trades → zero return variance → Sharpe is undefined. This is expected, not a bug.
+
+---
+
+## Requirement Coverage
+
+| Assignment Requirement | Implementation |
+|---|---|
+| Daily BIST100 data from yfinance | `yf.download("XU100.IS", ...)` in `assignment1_bist100.py` |
+| Daily returns computed | Close-to-close % change: `r_t = P_t / P_{t-1} − 1` |
+| Two separate Backtrader strategy classes | `TrendFollowingStrategy`, `MeanReversionStrategy` |
+| Grid search n = 1…10, m = 1…10 | 100 combinations × 2 strategies = 200 backtests |
+| Metrics per run | Total return, annualized return, volatility, Sharpe, max drawdown |
+| Best (n, m) selected per strategy | Argmax Sharpe over full grid |
+| Strategies compared, question answered | `short_report.md` Section 5 and this README |
+| Short report with tables, plots, conclusions | `short_report.md` |
