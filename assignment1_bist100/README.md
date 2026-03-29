@@ -92,9 +92,6 @@ assignment1_bist100/
 |- short_report.md
 |- run_output.txt
 |- README.md
-|- docs/
-|  |- SUMMARY.md
-|  \- REPORT.md
 \- results/
    |- best_summary.csv
    |- trend_results.csv
