@@ -1,0 +1,5 @@
+﻿Optimization complete.
+Best Trend Following (n,m): (4, 6)
+Best Mean Reversion (n,m): (1, 10)
+Winner by Sharpe ratio: Trend Following
+Results saved under: C:\Users\asus\assignment1_bist100\results

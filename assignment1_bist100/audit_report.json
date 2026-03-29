@@ -1,0 +1,172 @@
+{
+  "file_count": 32,
+  "text_decode_errors": [],
+  "python_compile_errors": [],
+  "csv_checks": {
+    "results\\best_summary.csv": {
+      "rows": 3,
+      "cols": 8,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\data_diagnostics.csv": {
+      "rows": 7,
+      "cols": 2,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\data_head.csv": {
+      "rows": 10,
+      "cols": 8,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\data_tail.csv": {
+      "rows": 10,
+      "cols": 8,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_2026-03-28.csv": {
+      "rows": 3,
+      "cols": 6,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_2026-03-29.csv": {
+      "rows": 3,
+      "cols": 6,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect__XU100.csv": {
+      "rows": 3,
+      "cols": 6,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_none.csv": {
+      "rows": 3,
+      "cols": 6,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_summary.csv": {
+      "rows": 4,
+      "cols": 3,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_tickers_summary.csv": {
+      "rows": 5,
+      "cols": 2,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_XU030_IS.csv": {
+      "rows": 4063,
+      "cols": 6,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_XU050_IS.csv": {
+      "rows": 3,
+      "cols": 6,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_XU100_IS.csv": {
+      "rows": 4071,
+      "cols": 6,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\debug\\inspect_XUTUM_IS.csv": {
+      "rows": 3,
+      "cols": 6,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\mean_results.csv": {
+      "rows": 100,
+      "cols": 7,
+      "consistent_columns": true,
+      "read_error": null
+    },
+    "results\\trend_results.csv": {
+      "rows": 100,
+      "cols": 7,
+      "consistent_columns": true,
+      "read_error": null
+    }
+  },
+  "image_checks": {
+    "results\\equity_curves.png": {
+      "ok": true,
+      "shape": [
+        960,
+        1760,
+        4
+      ]
+    },
+    "results\\mean_sharpe_heatmap.png": {
+      "ok": true,
+      "shape": [
+        1120,
+        1440,
+        4
+      ]
+    },
+    "results\\trend_sharpe_heatmap.png": {
+      "ok": true,
+      "shape": [
+        1120,
+        1440,
+        4
+      ]
+    }
+  },
+  "consistency_checks": {
+    "trend_grid_shape": [
+      100,
+      10,
+      10
+    ],
+    "mean_grid_shape": [
+      100,
+      10,
+      10
+    ],
+    "mean_nan_sharpe_count": 20,
+    "mean_nan_n_values": [
+      9,
+      10
+    ],
+    "trend_best_match": {
+      "grid": [
+        4,
+        6,
+        1.0579065367363585
+      ],
+      "summary": [
+        4,
+        6,
+        1.0579065367363585
+      ]
+    },
+    "mean_best_match": {
+      "grid": [
+        1,
+        10,
+        0.9365709102127924
+      ],
+      "summary": [
+        1,
+        10,
+        0.9365709102127924
+      ]
+    },
+    "ticker_used": "XU100.IS"
+  },
+  "missing_referenced_paths": []
+}
