@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Local generated audit/log artifacts
+assignment1_bist100/run_debug.txt
+assignment1_bist100/audit_report.json
+
+# Temporary and debug outputs
+assignment1_bist100/results_tmp/
+assignment1_bist100/results/debug/
+
+# Local packaging artifact
+assignment1_bist100/submission_package.zip
