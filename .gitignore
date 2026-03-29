@@ -1,6 +1,7 @@
 # Python cache
 __pycache__/
 *.py[cod]
+.venv/
 
 # Local generated audit/log artifacts
 assignment1_bist100/run_debug.txt
