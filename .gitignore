@@ -4,12 +4,12 @@ __pycache__/
 .venv/
 
 # Local generated audit/log artifacts
-assignment1_bist100/run_debug.txt
-assignment1_bist100/audit_report.json
+Bist100-Algorithmic-Trading-Strategy-Comparison-src/run_debug.txt
+Bist100-Algorithmic-Trading-Strategy-Comparison-src/audit_report.json
 
 # Temporary and debug outputs
-assignment1_bist100/results_tmp/
-assignment1_bist100/results/debug/
+Bist100-Algorithmic-Trading-Strategy-Comparison-src/results_tmp/
+Bist100-Algorithmic-Trading-Strategy-Comparison-src/results/debug/
 
 # Local packaging artifact
-assignment1_bist100/submission_package.zip
+Bist100-Algorithmic-Trading-Strategy-Comparison-src/submission_package.zip

@@ -1,6 +1,6 @@
-# Assignment 1 — BIST100 Strategy Comparison
+# Bist100-Algorithmic-Trading-Strategy-Comparison
 
-**Script:** `assignment1_bist100.py` | **Report:** `short_report.md`
+**Script:** `Bist100-Algorithmic-Trading-Strategy-Comparison-src/assignment1_bist100.py` | **Report:** `Bist100-Algorithmic-Trading-Strategy-Comparison-src/short_report.md`
 
 ---
 
@@ -46,6 +46,7 @@ Test two simple rule-based trading strategies on the BIST100 index and determine
 
 ```bash
 # Install dependencies
+cd Bist100-Algorithmic-Trading-Strategy-Comparison-src
 pip install -r requirements.txt
 
 # Run full pipeline (data download → backtest → optimization → output)
@@ -59,25 +60,26 @@ python assignment1_bist100.py
 ## Repository Structure
 
 ```
-assignment1_bist100/
-├── assignment1_bist100.py     # Main script: strategies, grid search, metrics, plots
-├── short_report.md            # Report with tables, heatmaps, equity curves, conclusion
-├── README.md                  # This file
-├── requirements.txt           # Python dependencies
-├── run_output.txt             # Console output from the latest run
-├── inspect_data.py            # Helper: inspect downloaded price data
-├── inspect_tickers.py         # Helper: check ticker availability in yfinance
-└── results/
-    ├── best_summary.csv       # Best (n, m) and metrics for each strategy + buy-and-hold
-    ├── trend_results.csv      # Full 10×10 grid results — Trend Following (100 rows)
-    ├── mean_results.csv       # Full 10×10 grid results — Mean Reversion (100 rows)
-    ├── trend_sharpe_heatmap.png
-    ├── mean_sharpe_heatmap.png
-    ├── equity_curves.png
-    ├── data_diagnostics.csv   # Ticker used, row count, date range, price range
-    ├── data_head.csv          # First rows of downloaded data
-    ├── data_tail.csv          # Last rows of downloaded data
-    └── RESULTS_INDEX.md       # Index of all output files
+.
+├── README.md
+└── Bist100-Algorithmic-Trading-Strategy-Comparison-src/
+    ├── assignment1_bist100.py     # Main script: strategies, grid search, metrics, plots
+    ├── short_report.md            # Report with tables, heatmaps, equity curves, conclusion
+    ├── requirements.txt           # Python dependencies
+    ├── run_output.txt             # Console output from the latest run
+    ├── inspect_data.py            # Helper: inspect downloaded price data
+    ├── inspect_tickers.py         # Helper: check ticker availability in yfinance
+    └── results/
+        ├── best_summary.csv       # Best (n, m) and metrics for each strategy + buy-and-hold
+        ├── trend_results.csv      # Full 10×10 grid results — Trend Following (100 rows)
+        ├── mean_results.csv       # Full 10×10 grid results — Mean Reversion (100 rows)
+        ├── trend_sharpe_heatmap.png
+        ├── mean_sharpe_heatmap.png
+        ├── equity_curves.png
+        ├── data_diagnostics.csv   # Ticker used, row count, date range, price range
+        ├── data_head.csv          # First rows of downloaded data
+        ├── data_tail.csv          # Last rows of downloaded data
+        └── RESULTS_INDEX.md       # Index of all output files
 ```
 
 ---
